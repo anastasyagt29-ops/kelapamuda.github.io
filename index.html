@@ -763,12 +763,11 @@
 
             <div class="related-links">
                 <i class="fas fa-link"></i> <strong>Mungkin kamu juga tertarik:</strong>
-                <a href="cakeanddrinkjoytoy.netlify.app" onclick="showToast('Membuka artikel: Usaha Cake & Drink'); return false;"> Usaha Cake & Drink</a>
-                <a href="https://dimas1886.github.io/projectUMKM/" onclick="showToast('Membuka artikel: Thai Tea Cheese SiGembul'); return false;"> Thai Tea Cheese SiGembul</a>
-                <a href="https://web-creator--sukmamakus.replit.app" onclick="showToast('Membuka artikel: Jeruk Peras'); return false;"> Jeruk Peras</a>
-                <a href="https://mochi-plosok.netlify.app/" onclick="showToast('Membuka artikel: Mochi Plosok'); return false;"> Mochi Plosok</a>
+                <a href="https://websitepromosicakeanddrinkjoytoy.netlify.app" target="_self" onclick="showToast('Membuka artikel: Usaha Cake & Drink'); return true;"> Usaha Cake & Drink</a>
+                <a href="https://dimas1886.github.io/projectUMKM/" target="_self" onclick="showToast('Membuka artikel: Thai Tea Cheese SiGembul'); return true;"> Thai Tea Cheese SiGembul</a>
+                <a href="https://web-creator--sukmamakus.replit.app" target="_self" onclick="showToast('Membuka artikel: Jeruk Peras'); return true;"> Jeruk Peras</a>
+                <a href="https://mochi-plosok.netlify.app/" target="_self" onclick="showToast('Membuka artikel: Mochi Plosok'); return true;"> Mochi Plosok</a>
             </div>
-            <p style="margin-top:24px; font-size:0.85rem; color:gray;"><i class="fas fa-graduation-cap"></i> Sumber edukasi: Jurnal Internasional Sports Nutrition 2018, Data Komposisi Pangan Indonesia, dan praktik terbaik Pondok Kelapa Muda Bang Agus.</p>
         </div>
 
         <h2 class="section-title" id="menu"><i class="fas fa-utensils"></i> Menu Kami</h2>
@@ -781,9 +780,9 @@
             <div style="margin-top:24px;"><h4>Berikan rating & komentar:</h4><div style="display:flex; gap:12px; flex-wrap:wrap;"><input type="text" id="namaUser" placeholder="Nama" style="padding:10px; border-radius:60px; flex:1;"><select id="ratingUser" style="padding:10px; border-radius:60px;"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option></select><input type="text" id="komentarUser" placeholder="Komentar..." style="padding:10px; border-radius:60px; flex:2;"><button id="btnKirimKomen" style="background:#bc6c25; color:white; border:none; padding:10px 18px; border-radius:40px;"><i class="fas fa-paper-plane"></i> Kirim</button></div></div>
         </div>
 
-        <div id="lokasi" class="info-lokasi"><div><h3><i class="fas fa-map-pin"></i> Lokasi UKM</h3><p>Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor, Kota Medan, Sumut 20143</p><p><i class="fas fa-clock"></i> Senin-Sabtu 08.00-18.00 | Minggu 10.00-15.00</p><p><i class="fas fa-phone-alt"></i> +62 882-0170-42809</p><p><a href="https://maps.app.goo.gl/JzTeKMX43Mhda7g88" target="_blank" style="color:#2d6a4f;">📍 Buka Google Maps</a></p></div><div class="map-container"></div></div>
+        <div id="lokasi" class="info-lokasi"><div><h3><i class="fas fa-map-pin"></i> Lokasi UKM</h3><p>Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor, Kota Medan, Sumut 20143</p><p><i class="fas fa-clock"></i> Senin-Sabtu 08.00-18.00 | Minggu 10.00-15.00</p><p><i class="fas fa-phone-alt"></i> +62 882-0170-42809</p><p><a href="https://maps.app.goo.gl/JzTeKMX43Mhda7g88" target="_self" style="color:#2d6a4f;">📍 Buka Google Maps</a></p></div><div class="map-container"></div></div>
 
-        <div id="order" style="margin:30px 0;"><h2 class="section-title"><i class="fas fa-shopping-cart"></i> Pemesanan</h2><div class="order-platforms"><a href="#" id="waOrderBtn" class="platform-btn wa-btn"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a></div></div>
+        <div id="order" style="margin:30px 0;"><h2 class="section-title"><i class="fas fa-shopping-cart"></i> Pemesanan</h2><div class="order-platforms"><a href="#" id="waOrderBtn" class="platform-btn wa-btn" target="_self"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a></div></div>
     </div>
 
     <footer>
@@ -920,7 +919,7 @@
                 discount=(activeDiscount && promoClaimed && totalQty>=2)?Math.min(Math.floor(subtotal*0.05),5000):0; 
             let total=subtotal-discount; 
             let msg="🍹 *Pesanan Pondok Kelapa Muda Bang Agus* 🍹\n\n"+cart.map(i=>`• ${i.nama} (${i.quantity}x) = Rp ${(i.harga*i.quantity).toLocaleString()}`).join("\n")+`\n\n📝 Subtotal: Rp ${subtotal.toLocaleString()}`+(discount>0?`\n🎉 Diskon: -Rp ${discount.toLocaleString()}`:'')+`\n💰 *TOTAL: Rp ${total.toLocaleString()}*\n\n🚚 Mohon konfirmasi alamat & metode pembayaran. Terima kasih!`; 
-            window.open(`https://wa.me/62882017042809?text=${encodeURIComponent(msg)}`,'_blank'); 
+            window.location.href = `https://wa.me/62882017042809?text=${encodeURIComponent(msg)}`;
         });
         
         document.getElementById('cartIcon')?.addEventListener('click',()=>{ 
@@ -937,7 +936,7 @@
         });
         document.getElementById('waOrderBtn')?.addEventListener('click',(e)=>{ 
             e.preventDefault(); 
-            window.open('https://wa.me/62882017042809?text=Halo%20Bang%20Agus%2C%20saya%20mau%20order%20es%20kelapa.','_blank'); 
+            window.location.href = 'https://wa.me/62882017042809?text=Halo%20Bang%20Agus%2C%20saya%20mau%20order%20es%20kelapa.';
         });
         document.getElementById('btnKirimKomen')?.addEventListener('click',()=>{ 
             let nama=document.getElementById('namaUser')?.value, 
