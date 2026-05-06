@@ -367,46 +367,8 @@
             justify-content: center;
         }
 
-        .promo-box {
-            background: linear-gradient(135deg, #fde7d4, #f5d5b0);
-            border-radius: 32px;
-            padding: 24px 32px;
-            margin: 20px 0 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .promo-badge {
-            position: absolute;
-            top: 10px;
-            right: -30px;
-            background: #e67e22;
-            color: white;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        .promo-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .btn-claim {
-            background: var(--coconut-green);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 60px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .edu-article {
+        /* Gaya Artikel */
+        .articles-section {
             background: white;
             border-radius: 48px;
             padding: 48px;
@@ -414,17 +376,17 @@
             box-shadow: var(--shadow-sm);
         }
 
-        .edu-header {
+        .articles-header {
             text-align: center;
             margin-bottom: 36px;
         }
 
-        .edu-header h2 {
+        .articles-header h2 {
             font-size: 2rem;
             color: var(--coconut-green);
         }
 
-        .edu-badge {
+        .articles-badge {
             background: #e8f5e9;
             display: inline-block;
             padding: 6px 20px;
@@ -434,25 +396,126 @@
             color: #2d6a4f;
         }
 
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin: 32px 0;
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
         }
 
-        .nutri-card {
+        .article-item {
+            border-bottom: 1px solid #e9edc9;
+            padding-bottom: 40px;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: #8a7a5a;
+            margin-bottom: 12px;
+        }
+
+        .article-meta i {
+            margin-right: 6px;
+        }
+
+        .article-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e4a2f;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .article-content p {
+            line-height: 1.6;
+            color: #4a5a3a;
+            margin-bottom: 16px;
+        }
+
+        .read-more-btn {
+            background: transparent;
+            border: 2px solid var(--coconut-green);
+            padding: 10px 24px;
+            border-radius: 40px;
+            color: var(--coconut-green);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .read-more-btn:hover {
+            background: var(--coconut-green);
+            color: white;
+            gap: 12px;
+        }
+
+        /* Keunggulan Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
             background: #f8fbf5;
             border-radius: 28px;
-            padding: 24px;
-            border-left: 6px solid var(--coconut-green);
+            padding: 28px 24px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--coconut-green);
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #1e4a2f;
+        }
+
+        .feature-card p {
+            color: #5a6a4a;
+            line-height: 1.5;
+        }
+
+        /* Gaya Video Responsif YouTube */
+        .video-section {
+            background: white;
+            border-radius: 48px;
+            padding: 48px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .video-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .video-header h3 {
+            font-size: 1.5rem;
+            color: var(--coconut-green);
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-            margin: 32px 0;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+            margin: 0 auto;
         }
 
         .video-card {
@@ -463,20 +526,86 @@
             transition: 0.2s;
         }
 
-        .video-card video {
-            width: 100%;
-            height: auto;
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Rasio 16:9 */
+            height: 0;
+            overflow: hidden;
             background: #1a2a1a;
-            display: block;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-caption {
-            padding: 12px 16px;
+            padding: 14px 16px;
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: #5a4a2a;
             border-top: 1px solid #e9d5a0;
             background: #fff8e7;
+        }
+
+        .video-input-form {
+            margin-top: 32px;
+            padding: 24px;
+            background: #f0f5ea;
+            border-radius: 28px;
+            text-align: center;
+        }
+
+        .video-input-form h4 {
+            margin-bottom: 16px;
+            color: var(--coconut-green);
+        }
+
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .input-group input {
+            flex: 2;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 2px solid #e9edc9;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--coconut-green);
+        }
+
+        .input-group button {
+            background: var(--coconut-green);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .input-group button:hover {
+            background: var(--palm-sugar);
         }
 
         .related-links {
@@ -500,29 +629,12 @@
             color: var(--palm-sugar);
         }
 
-        .about-section, .review-section, .info-lokasi {
+        .review-section, .info-lokasi {
             background: white;
             border-radius: 48px;
             padding: 40px;
             margin: 40px 0;
             box-shadow: var(--shadow-sm);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .about-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .about-item i {
-            font-size: 2rem;
-            color: var(--coconut-green);
         }
 
         .review-stats {
@@ -551,7 +663,7 @@
         }
 
         .single-comment {
-            background: white;
+            background: #faf8f0;
             border-radius: 28px;
             padding: 16px 20px;
             margin-bottom: 16px;
@@ -633,10 +745,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             z-index: 2000;
             justify-content: center;
             align-items: center;
+            overflow-y: auto;
         }
 
         .modal.active {
@@ -646,19 +759,73 @@
         .modal-content {
             background: white;
             border-radius: 32px;
-            padding: 32px;
-            max-width: 400px;
+            max-width: 800px;
             width: 90%;
-            text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            margin: 20px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--coconut-green);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #1e4a2f;
+            margin-bottom: 16px;
+            padding-right: 30px;
+        }
+
+        .modal-meta {
+            color: #8a7a5a;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e9edc9;
+        }
+
+        .modal-body {
+            line-height: 1.8;
+            color: #3a4a2a;
+        }
+
+        .modal-body p {
+            margin-bottom: 16px;
+        }
+
+        .modal-body h4 {
+            margin: 24px 0 12px 0;
+            color: var(--coconut-green);
+        }
+
+        .modal-body ul {
+            margin: 16px 0 16px 24px;
         }
 
         @media (max-width: 760px) {
             .hero { flex-direction: column; text-align: center; }
             .navbar { flex-direction: column; padding: 15px 5%; }
             .cart-sidebar { width: 100%; right: -100%; }
-            .edu-article { padding: 24px; }
+            .articles-section { padding: 24px; }
+            .video-section { padding: 24px; }
+            .article-title { font-size: 1.4rem; }
             .video-grid { grid-template-columns: 1fr; }
             footer { padding: 30px 5%; }
+            .modal-content { padding: 24px; }
+            .modal-title { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -675,7 +842,7 @@
             <div class="nav-links">
                 <a href="#tentang">Tentang</a>
                 <a href="#menu">Menu</a>
-                <a href="#edukasi">Artikel</a>
+                <a href="#artikel">Artikel</a>
                 <a href="#ulasan">Ulasan</a>
                 <a href="#lokasi">Lokasi</a>
             </div>
@@ -717,82 +884,168 @@
             <div class="stat-card"><div class="stat-number">500+</div><p>Ulasan</p></div>
         </div>
 
-        <div id="edukasi" class="edu-article">
-            <div class="edu-header">
-                <div class="edu-badge"><i class="fas fa-leaf"></i> Edukasi & Kesehatan</div>
-                <h2>🌿 Khasiat Kelapa Muda + Keunggulan Produk Bang Agus</h2>
-                <p style="margin-top:12px;">Pelajari kandungan elektrolit alami & bagaimana Pondok Kelapa Muda Bang Agus menyajikannya untuk Anda</p>
+        <!-- BAGIAN ARTIKEL -->
+        <div id="artikel" class="articles-section">
+            <div class="articles-header">
+                <div class="articles-badge"><i class="fas fa-leaf"></i> Cerita & Fakta Untukmu</div>
+                <h2>🌿 Cerita & Inspirasi dari Bang Agus</h2>
+                <p style="margin-top:12px;">Kenali lebih dekat kami dan temukan alasan mengapa es kelapa muda segar adalah pilihan terbaik</p>
             </div>
 
-            <h3 style="color: var(--coconut-green);"><i class="fas fa-tint"></i> Bagian 1: Kandungan & Manfaat Kelapa Muda</h3>
-            <p style="line-height:1.8; margin-bottom:16px;">Kelapa muda (air dan daging) kaya akan <strong>elektrolit alami (kalium, natrium, magnesium)</strong>, mineral, vitamin C, dan antioksidan yang efektif untuk menghidrasi tubuh, menambah energi, serta mendukung fungsi imun. Rendah kalori, ia merupakan pilihan minuman sehat untuk mengatasi dehidrasi dan mengembalikan cairan tubuh. Air kelapa muda mengandung sekitar 95% air dan 5% karbohidrat, dengan kadar lemak dan protein yang sangat rendah. Inilah mengapa minuman ini sangat direkomendasikan bagi mereka yang sedang menjalani program penurunan berat badan atau menjaga kadar gula darah tetap stabil.</p>
-            
-            <p style="line-height:1.8; margin-bottom:16px;"><strong>Kandungan Unggulan Kelapa Muda:</strong> Elektrolit alami dalam air kelapa muda mencakup kalium (sekitar 250 mg per 100 ml), natrium (105 mg), dan magnesium (10 mg). Kalium berperan vital dalam menjaga keseimbangan cairan intraseluler, mendukung kontraksi otot, serta transmisi impuls saraf. Natrium membantu mengatur tekanan darah dan keseimbangan cairan ekstraseluler. Magnesium terlibat dalam lebih dari 300 reaksi enzimatik, termasuk sintesis protein, fungsi otot, dan sistem kekebalan tubuh. Vitamin C yang terkandung berfungsi sebagai antioksidan kuat yang melindungi sel dari kerusakan radikal bebas, sekaligus meningkatkan produksi kolagen untuk kesehatan kulit.</p>
-            
-            <p style="line-height:1.8; margin-bottom:16px;"><strong>Manfaat Utama bagi Tubuh:</strong> Pertama, menghidrasi tubuh secara optimal. Komposisi elektrolit air kelapa sangat mirip dengan cairan plasma darah manusia, sehingga lebih efektif daripada air putih biasa untuk menggantikan cairan yang hilang akibat aktivitas fisik berat, diare, atau cuaca panas. Kedua, mengembalikan energi dengan cepat. Gula alami (glukosa, fruktosa, sukrosa) bersama elektrolit membantu memulihkan glikogen otot pasca-olahraga. Ketiga, mendukung fungsi imun berkat vitamin C dan antioksidan yang memperkuat sistem pertahanan tubuh terhadap infeksi. Keempat, menjaga kesehatan jantung berkat kandungan kalium yang membantu mengatur tekanan darah dan mengurangi risiko hipertensi.</p>
-            
-            <p style="line-height:1.8;">Penelitian yang dipublikasikan dalam <em>Journal of the International Society of Sports Nutrition</em> (2018) menyimpulkan bahwa air kelapa muda memiliki efektivitas rehidrasi yang setara dengan minuman isotonik komersial, namun dengan kandungan gula alami yang lebih rendah dan tanpa pewarna buatan. Ini menjadikannya pilihan minuman pasca-olahraga yang lebih alami dan sehat.</p>
-
-            <hr style="margin: 40px 0; border-color: #e9edc9;">
-            <h3 style="color: var(--coconut-green); margin-top:20px;"><i class="fas fa-store"></i> Bagian 2: Produk Unggulan Pondok Kelapa Muda Bang Agus</h3>
-            <p style="line-height:1.8; margin-bottom:16px;"><strong>Pondok Kelapa Muda Bang Agus</strong> berdiri sejak tahun 2020 di Kota Medan, Sumatera Utara. Bermula dari kegemaran Bang Agus menyajikan es kelapa untuk keluarganya, kini pondok sederhana ini telah menjadi langganan warga Medan yang mencari kesegaran alami. Setiap hari, Bang Agus memilih kelapa muda langsung dari petani lokal di Deli Serdang dan menyajikannya dengan penuh cinta serta standar kebersihan yang ketat.</p>
-            
-            <p style="line-height:1.8; margin-bottom:16px;"><strong>Komitmen Kualitas Bang Agus:</strong> Semua kelapa yang digunakan berasal dari pohon kelapa berusia 6-8 bulan, karena pada usia ini daging kelapa masih lunak dan airnya paling segar. Bang Agus juga hanya menggunakan gula aren asli dari Sumatera Utara yang kaya akan mineral seperti zat besi, zinc, dan magnesium, berbeda dengan gula pasir biasa yang hanya memberikan kalori kosong. Sirup untuk varian rasa dibuat secara homemade tanpa pewarna sintetis atau pengawet, sehingga aman dikonsumsi oleh segala usia. Proses pemotongan kelapa dilakukan di depan pelanggan untuk menjamin kesegaran dan kebersihan.</p>
-            
-            <p style="line-height:1.8; margin-bottom:16px;"><strong>Varian Menu dan Keunggulannya:</strong> Pondok Kelapa Muda Bang Agus menawarkan 5 varian menu andalan. Pertama, Air Kelapa Original (Rp 13.000) — tanpa tambahan gula, cocok untuk diet dan penderita diabetes dalam porsi terkontrol. Kedua, Es Kelapa Gula Putih (Rp 8.000) — rasa manis ringan yang universal. Ketiga, Es Kelapa Gula Merah (Rp 9.000) — menggunakan gula aren kaya mineral Fe, Zn, Mg yang memberikan energi lebih stabil dan tidak menyebabkan lonjakan gula darah drastis. Keempat, Es Kelapa Aneka Sirup (Rp 10.000) — tersedia rasa coc pandan, vanila, stroberi, semua dari bahan alami. Kelima, Es Kelapa Susu (Rp 11.000) — kombinasi daging kelapa muda dengan susu segar, tinggi kalsium dan protein, cocok untuk anak-anak.</p>
-            
-            <p style="line-height:1.8;">Bang Agus juga menyediakan layanan pesan antar via WhatsApp dan menerima COD untuk area Medan dan sekitarnya. Dengan harga yang terjangkau dan rasa yang autentik, tidak heran jika Pondok Kelapa Muda Bang Agus menjadi favorit banyak kalangan, dari anak muda hingga orang tua. Setiap pembelian juga mendukung petani kelapa lokal karena Bang Agus menerapkan sistem kemitraan yang berkelanjutan.</p>
-
-            <h4 style="margin: 32px 0 16px;"><i class="fas fa-video"></i> Video Edukasi (480p)</h4>
-            <div class="video-grid">
-                <div class="video-card">
-                    <video width="100%" height="auto" controls preload="metadata">
-                        <source src="https://youtube.com/shorts/y4C27iblIfs" type="video/mp4">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="video-caption">Tugas</div>
+            <div class="article-list">
+                <div class="article-item">
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 6 menit baca · 20 Apr 2026</span>
+                        <span><i class="fas fa-tag"></i> Cerita Kami</span>
+                    </div>
+                    <h3 class="article-title">Dari Warung Kecil, Lahir Cita-Cita yang Besar</h3>
+                    <div class="article-content">
+                        <p>Tidak ada yang menyangka bahwa sebuah warung sederhana di pinggir jalan Karya Wisata, Medan, akan tumbuh menjadi salah satu minuman segar paling dicari di kota ini...</p>
+                    </div>
+                    <button class="read-more-btn" onclick="openArticle('cerita')">Baca selengkapnya <i class="fas fa-arrow-right"></i></button>
                 </div>
-                <div class="video-card">
-                    <video width="100%" height="auto" controls preload="metadata">
-                        <source src="https://youtu.be/rIDp3QfTYBk" type="video/mp4">
-                        Browser Anda tidak mendukung tag video.
-                    </video>
-                    <div class="video-caption">Manfaat kelapa</div>
+
+                <div class="article-item">
+                    <div class="article-meta">
+                        <span><i class="far fa-clock"></i> 8 menit baca · 26 Apr 2026</span>
+                        <span><i class="fas fa-tag"></i> Edukasi & Kesehatan</span>
+                    </div>
+                    <h3 class="article-title">Kenapa Kelapa Muda Segar Jauh Lebih Baik dari Minuman Kemasan?</h3>
+                    <div class="article-content">
+                        <p>Kamu mungkin sudah sering mendengar bahwa air kelapa muda itu menyehatkan. Tapi tahukah kamu seberapa besar perbedaannya dibanding minuman kemasan...</p>
+                    </div>
+                    <button class="read-more-btn" onclick="openArticle('edukasi')">Baca selengkapnya <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
+        </div>
 
-            <div class="related-links">
-                <i class="fas fa-link"></i> <strong>Mungkin kamu juga tertarik:</strong>
-                <a href="https://websitepromosicakeanddrinkjoytoy.netlify.app" target="_self" onclick="showToast('Membuka artikel: Usaha Cake & Drink'); return true;"> Usaha Cake & Drink</a>
-                <a href="https://dimas1886.github.io/projectUMKM/" target="_self" onclick="showToast('Membuka artikel: Thai Tea Cheese SiGembul'); return true;"> Thai Tea Cheese SiGembul</a>
-                <a href="https://web-creator--sukmamakus.replit.app" target="_self" onclick="showToast('Membuka artikel: Jeruk Peras'); return true;"> Jeruk Peras</a>
-                <a href="https://mochi-plosok.netlify.app/" target="_self" onclick="showToast('Membuka artikel: Mochi Plosok'); return true;"> Mochi Plosok</a>
+        <!-- Keunggulan Kami -->
+        <div class="feature-grid" id="tentang">
+            <div class="feature-card">
+                <i class="fas fa-seedling"></i>
+                <h3>100% Alami</h3>
+                <p>Tanpa pemanis buatan, pengawet, atau pewarna. Hanya kelapa muda pilihan dan gula aren asli.</p>
             </div>
+            <div class="feature-card">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Dibuka Saat Pesan</h3>
+                <p>Kelapa dipotong dan diracik langsung di depan Anda saat memesan. Jaminan kesegaran!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Kaya Elektrolit</h3>
+                <p>Mengandung kalium, magnesium, dan vitamin C alami yang baik untuk daya tahan tubuh.</p>
+            </div>
+        </div>
+
+        <!-- BAGIAN VIDEO YOUTUBE - RESPONSIF -->
+        <div class="video-section">
+            <div class="video-header">
+                <div class="articles-badge"><i class="fab fa-youtube"></i> Konten Kami</div>
+                <h3></h3>
+                <p style="margin-top:8px;"></p>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+                <!-- Video 1 - YouTube Shorts -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe 
+                        src="https://youtube.com/embed/shorts/tzmsuQZNGLU?si=MVZzxCNMBehhizG9"></iframe>" 
+                        width="100%" 
+                        height="315" 
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                    </div>
+                    <div class="video-caption">
+                        <i class=""></i>
+                    </div>
+                </div>
+                
+                <!-- Video 2 - YouTube Edukasi -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                       <iframe  
+                       width="560" height="315"src="https://www.youtu.be/embed/aacYaiAD4gw?si=bxgublq3s6DUzO-b" frameborder="0" 
+  >
+</iframe>
+                       width="100%" 
+                       height="315" 
+                       frameborder="0" 
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                       allowfullscreen>
+                    </iframe>
+                    </div>
+                    <div class="video-caption">
+                        <i class=""></i> 
+                    </div>
+                </div>
+            </div>
+
+        <!-- Related Links -->
+        <div class="related-links">
+            <i class="fas fa-link"></i> <strong>Mungkin kamu juga tertarik:</strong>
+            <a href="https://websitepromosicakeanddrinkjoytoy.netlify.app" target="_blank">🍰 Usaha Cake & Drink</a>
+            <a href="https://dimas1886.github.io/projectUMKM/" target="_blank">🧋 Thai Tea Cheese SiGembul</a>
+            <a href="https://web-creator--sukmamakus.replit.app" target="_blank">🍊 Jeruk Peras Seger Bareng</a>
+            <a href="https://mochi-plosok.netlify.app/" target="_blank">🍡 Mochi Plosok</a>
         </div>
 
         <h2 class="section-title" id="menu"><i class="fas fa-utensils"></i> Menu Kami</h2>
         <div class="menu-grid" id="menuGrid"></div>
 
-        <div id="ulasan" class="review-section">
-            <h2><i class="fas fa-star star-filled"></i> Rating & Komentar Pelanggan</h2>
+        <div id="ulasan" cl fa-star star-filled"></i> Rating & Komentar Pelanggan</h2>
             <div class="review-stats"><div><span class="rating-big">4.9</span> / 5.0<div><i class="fas fa-star star-filled"></i><i class="fas fa-star star-filled"></i><i class="fas fa-star star-filled"></i><i class="fas fa-star star-filled"></i><i class="fas fa-star-half-alt star-filled"></i></div></div><div><i class="fas fa-store"></i> 98% pembeli merekomendasikan</div></div>
-            <div class="comment-list" id="commentList"><div class="single-comment"><strong>Andini</strong> ⭐⭐⭐⭐⭐ <br>“Es kelapa gula merahnya juara! Segar banget dan gula arennya terasa legit.”</div><div class="single-comment"><strong>Budi</strong> ⭐⭐⭐⭐☆ <br>“Original tanpa gula cocok buat diet. Recommended!”</div><div class="single-comment"><strong>Citra</strong> ⭐⭐⭐⭐⭐ <br>“Sirup kelapanya bikin nagih, pasti balik lagi!”</div></div>
+            <div class="comment-list" id="commentList">
+                <div class="single-comment"><strong>Andini</strong> ⭐⭐⭐⭐⭐ <br>“Es kelapa gula merahnya juara! Segar banget dan gula arennya terasa legit.”</div>
+                <div class="single-comment"><strong>Budi</strong> ⭐⭐⭐⭐☆ <br>“Original tanpa gula cocok buat diet. Recommended!”</div>
+                <div class="single-comment"><strong>Citra</strong> ⭐⭐⭐⭐⭐ <br>“Sirup kelapanya bikin nagih, pasti balik lagi!”</div>
+            </div>
             <div style="margin-top:24px;"><h4>Berikan rating & komentar:</h4><div style="display:flex; gap:12px; flex-wrap:wrap;"><input type="text" id="namaUser" placeholder="Nama" style="padding:10px; border-radius:60px; flex:1;"><select id="ratingUser" style="padding:10px; border-radius:60px;"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option></select><input type="text" id="komentarUser" placeholder="Komentar..." style="padding:10px; border-radius:60px; flex:2;"><button id="btnKirimKomen" style="background:#bc6c25; color:white; border:none; padding:10px 18px; border-radius:40px;"><i class="fas fa-paper-plane"></i> Kirim</button></div></div>
         </div>
 
-        <div id="lokasi" class="info-lokasi"><div><h3><i class="fas fa-map-pin"></i> Lokasi UKM</h3><p>Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor, Kota Medan, Sumut 20143</p><p><i class="fas fa-clock"></i> Senin-Sabtu 08.00-18.00 | Minggu 10.00-15.00</p><p><i class="fas fa-phone-alt"></i> +62 882-0170-42809</p><p><a href="https://maps.app.goo.gl/JzTeKMX43Mhda7g88" target="_self" style="color:#2d6a4f;">📍 Buka Google Maps</a></p></div><div class="map-container"></div></div>
+        <div id="lokasi" class="info-lokasi">
+            <div>
+                <h3><i class="fas fa-map-pin"></i> Lokasi UMKM</h3>
+                <p>Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor, Kota Medan, Sumut 20143</p>
+                <p><i class="fas fa-clock"></i> Senin-Sabtu 08.00-18.00 | Minggu 10.00-15.00</p>
+                <p><i class="fas fa-phone-alt"></i> +62 882-0170-42809</p>
+                <p><a href="https://maps.app.goo.gl/JzTeKMX43Mhda7g88" target="_blank" style="color:#2d6a4f;">📍 Buka Google Maps</a></p>
+            </div>
 
-        <div id="order" style="margin:30px 0;"><h2 class="section-title"><i class="fas fa-shopping-cart"></i> Pemesanan</h2><div class="order-platforms"><a href="#" id="waOrderBtn" class="platform-btn wa-btn" target="_self"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a></div></div>
+        </div>
+
+        <div id="order" style="margin:30px 0;">
+            <h2 class="section-title"><i class="fas fa-shopping-cart"></i> Pemesanan</h2>
+            <div class="order-platforms">
+                <a href="#" id="waOrderBtn" class="platform-btn wa-btn"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>© 2026 Pondok Kelapa Muda Bang Agus - UKM Berkah Keluarga. Seluruh hak cipta dilindungi.</p>
+        <p>© 2026 Pondok Kelapa Muda Bang Agus - UMKM Berkah Keluarga. Seluruh hak cipta dilindungi.</p>
         <p style="margin-top:12px;"><i class="fas fa-check-circle"></i> Pembayaran & pengiriman melalui WhatsApp | COD tersedia area Medan</p>
         <p style="margin-top:12px; font-size:0.8rem;"><i class="fas fa-map-marker-alt"></i> Jl. Karya Wisata, Pangkalan Masyhur, Kec. Medan Johor, Kota Medan</p>
     </footer>
 
     <div class="overlay" id="overlay"></div>
-    <div class="cart-sidebar" id="cartSidebar"><div class="cart-header"><h3><i class="fas fa-shopping-bag"></i> Pesanan Saya</h3><i class="fas fa-times" id="closeCart" style="cursor:pointer;"></i></div><div class="cart-items" id="cartItems"></div><div class="discount-info" id="discountInfo" style="display:none;"></div><div class="cart-total" id="cartTotal"></div><button class="btn-checkout" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Lanjut ke WhatsApp (Pembayaran)</button></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header"><h3><i class="fas fa-shopping-bag"></i> Pesanan Saya</h3><i class="fas fa-times" id="closeCart" style="cursor:pointer;"></i></div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="discount-info" id="discountInfo" style="display:none;"></div>
+        <div class="cart-total" id="cartTotal"></div>
+        <button class="btn-checkout" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Lanjut ke WhatsApp (Pembayaran)</button>
+    </div>
+
+    <!-- Modal untuk baca artikel lengkap -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
 
     <script>
         const menuItems = [
@@ -805,17 +1058,172 @@
         let cart = [];
         let activeDiscount = null, promoClaimed = false;
         
-        // GAMBAR PALING STABIL - Menggunakan Picsum (tidak pernah error)
-        // Jika Anda ingin menggunakan gambar sendiri, upload ke imgur.com dan ganti linknya
         const defaultImages = {
-            1: "https://i.pinimg.com/736x/3d/59/03/3d5903af785f6b58d71c0e21d56a42e0.jpg",   // Air Kelapa Original - gambar alam
-            2: "https://i.pinimg.com/736x/4e/71/55/4e715586f5641ba164bb14e3e711516a.jpg",  // Es Kelapa Gula Putih
-            3: "https://i.pinimg.com/1200x/85/f3/c0/85f3c01a3a6c01ea0dbdcc66eab11b54.jpg",  // Es Kelapa Gula Merah
-            4: "https://i.pinimg.com/736x/15/bf/8b/15bf8b274f6f94dc3e784948b36d55f9.jpg",  // Es Kelapa Aneka Sirup
-            5: "https://i.pinimg.com/736x/d4/0c/01/d40c01b86f6b4d8f241294f8d1702a06.jpg"   // Es Kelapa Susu
+            1: "https://i.pinimg.com/736x/3d/59/03/3d5903af785f6b58d71c0e21d56a42e0.jpg",
+            2: "https://i.pinimg.com/736x/4e/71/55/4e715586f5641ba164bb14e3e711516a.jpg",
+            3: "https://i.pinimg.com/1200x/85/f3/c0/85f3c01a3a6c01ea0dbdcc66eab11b54.jpg",
+            4: "https://i.pinimg.com/736x/15/bf/8b/15bf8b274f6f94dc3e784948b36d55f9.jpg",
+            5: "https://i.pinimg.com/736x/d4/0c/01/d40c01b86f6b4d8f241294f8d1702a06.jpg"
         };
         
         let menuImages = JSON.parse(localStorage.getItem('menuImages')) || defaultImages;
+        
+        // Fungsi untuk ekstrak ID YouTube dari berbagai format URL
+        function getYouTubeId(url) {
+            if (!url) return null;
+            
+            // Handle youtu.be/xxxxx
+            if (url.includes('youtu.be/')) {
+                const match = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+                return match ? match[1] : null;
+            }
+            
+            // Handle youtube.com/watch?v=xxxxx
+            if (url.includes('youtube.com/watch')) {
+                const match = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+                return match ? match[1] : null;
+            }
+            
+            // Handle youtube.com/embed/xxxxx
+            if (url.includes('youtube.com/embed/')) {
+                const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+                return match ? match[1] : null;
+            }
+            
+            // Handle youtube.com/shorts/xxxxx
+            if (url.includes('youtube.com/shorts/')) {
+                const match = url.match(/shorts\/([a-zA-Z0-9_-]+)/);
+                return match ? match[1] : null;
+            }
+            
+            return null;
+        }
+
+        // Fungsi untuk menambah video baru
+        function addYouTubeVideo() {
+            const urlInput = document.getElementById('youtubeUrl');
+            const titleInput = document.getElementById('videoTitle');
+            const url = urlInput.value.trim();
+            const title = titleInput.value.trim() || "Video Edukasi Kelapa Muda";
+            
+            if (!url) {
+                alert('Masukkan URL YouTube terlebih dahulu!');
+                return;
+            }
+            
+            const videoId = getYouTubeId(url);
+            if (!videoId) {
+                alert('URL YouTube tidak valid! Pastikan linknya benar.\n\nContoh:\n- https://youtu.be/xxxxx\n- https://www.youtube.com/watch?v=xxxxx\n- https://youtube.com/shorts/xxxxx');
+                return;
+            }
+            
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            const videoGrid = document.getElementById('videoGrid');
+            
+            const newVideoCard = document.createElement('div');
+            newVideoCard.className = 'video-card';
+            newVideoCard.innerHTML = `
+                <div class="video-wrapper">
+                    <iframe 
+                        src="${embedUrl}" 
+                        title="${title}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-caption">
+                    <i class="fab fa-youtube"></i> ${title}
+                </div>
+            `;
+            
+            videoGrid.appendChild(newVideoCard);
+            
+            // Clear input
+            urlInput.value = '';
+            titleInput.value = '';
+            
+            showToast('✅ Video berhasil ditambahkan!');
+        }
+        
+        // Konten Artikel Lengkap
+        const articleContent = {
+            cerita: {
+                title: "Dari Warung Kecil, Lahir Cita-Cita yang Besar",
+                meta: "6 menit baca · 20 Apr 2026 · Cerita Kami",
+                body: `
+                    <p>Tidak ada yang menyangka bahwa sebuah warung sederhana di pinggir jalan Karya Wisata, Medan, akan tumbuh menjadi salah satu minuman segar paling dicari di kota ini.</p>
+                    <p>Cerita ini dimulai pada tahun 2020. Waktu itu, Bang Agus cuma iseng-iseng bikin es kelapa buat keluarganya sendiri. Tapi rasa penasaran tetangga mulai datang. "Agus, jualan aja, segar banget rasanya," kata seorang tetangga.</p>
+                    <p>Dari situ, mulailah Bang Agus berjualan dengan gerobak sederhana. Modal awal cuma sedikit: beberapa butir kelapa, gula aren, dan es batu.</p>
+                    <h4>Perjuangan di Awal</h4>
+                    <p>Tahun pertama berjualan, Bang Agus harus bangun jam 4 pagi. Dia pergi ke pasar buat milih kelapa sendiri. "Saya nggak mau ambil yang sudah tua atau yang sudah berbau. Harus yang pas, umur 6-8 bulan," cerita Bang Agus.</p>
+                    <p>Dari situ, perlahan pelanggan mulai percaya. Mereka tahu kalau kelapa yang dipakai Bang Agus selalu segar. Gula arennya juga asli, bukan gula pasir murahan.</p>
+                    <h4>Kunci Sukses: Jujur dan Konsisten</h4>
+                    <p>Yang bikin pondok ini beda dari yang lain adalah komitmen Bang Agus pada kualitas. Semua kelapa berasal dari petani lokal di Deli Serdang. Gula arennya dari Sumatera Utara, kaya mineral.</p>
+                    <p>"Buat saya, bisnis ini bukan cuma jualan. Saya ingin orang minum yang sehat dan alami. Nggak ada pewarna, nggak ada pengawet," tegas Bang Agus sekarang.</p>
+                    <h4>Sekarang dan Nanti</h4>
+                    <p>Hari ini, Pondok Kelapa Muda Bang Agus sudah punya ratusan pelanggan setia. Mulai dari anak sekolah, mahasiswa, sampai orang tua yang lagi diet. Semua suka.</p>
+                    <p>Rencananya, Bang Agus mau buka cabang dan memperluas jangkauan antar. Tapi satu yang pasti: kualitas tetap nomor satu.</p>
+                    <p>"Dari warung kecil, saya belajar bahwa niat baik dan kerja keras akan membuahkan hasil. Terima kasih untuk semua pelanggan yang percaya sama rasa segar alami kami," tutup Bang Agus.</p>
+                `
+            },
+            edukasi: {
+                title: "Kenapa Kelapa Muda Segar Jauh Lebih Baik dari Minuman Kemasan?",
+                meta: "8 menit baca · 26 Apr 2026 · Edukasi & Kesehatan",
+                body: `
+                    <p>Kamu mungkin sudah sering dengar kalau air kelapa muda itu menyehatkan. Tapi tahukah kamu seberapa besar perbedaannya dibanding minuman kemasan berlabel "minuman kelapa"?</p>
+                    <p>Jawabannya akan membuatmu tidak ingin kembali ke minuman botolan.</p>
+                    <h4>Komposisi yang Beda Jauh</h4>
+                    <p>Air kelapa muda segar mengandung elektrolit alami yang sangat mirip dengan cairan plasma darah manusia. Isinya apa aja? Kalium sekitar 250 mg per 100 ml, natrium 105 mg, dan magnesium 10 mg.</p>
+                    <p>Penelitian yang dipublikasikan dalam <em>Journal of the International Society of Sports Nutrition</em> (2018) menyimpulkan bahwa air kelapa muda memiliki efektivitas rehidrasi yang setara dengan minuman isotonik komersial.</p>
+                    <p>Tapi bedanya? Air kelapa segar punya gula alami yang lebih rendah dan tanpa pewarna buatan.</p>
+                    <h4>Minuman Kemasan: Apa yang Tersembunyi?</h4>
+                    <p>Sekarang coba balik badan ke minuman kemasan. Banyak dari mereka menambahkan:</p>
+                    <ul>
+                        <li>Gula tambahan (bisa sampai 20-30 gram per botol!)</li>
+                        <li>Pengawet biar tahan lama di rak toko</li>
+                        <li>Pewarna buatan biar warnanya menarik</li>
+                        <li>Perasa buatan biar rasanya "nendang"</li>
+                    </ul>
+                    <p>Hasilnya? Minuman ini memang lebih murah dan simpel. Tapi dampaknya buat kesehatan jangka panjang nggak main-main.</p>
+                    <h4>4 Manfaat Utama Kelapa Muda Segar</h4>
+                    <p><strong>1. Hidrasi Optimal</strong><br>Komposisi elektrolit air kelapa mirip plasma darah. Ini lebih efektif daripada air putih biasa buat mengganti cairan yang hilang setelah olahraga atau saat cuaca panas.</p>
+                    <p><strong>2. Kembalikan Energi Cepat</strong><br>Gula alami (glukosa, fruktosa, sukrosa) + elektrolit membantu memulihkan glikogen otot pasca-olahraga.</p>
+                    <p><strong>3. Dukung Sistem Imun</strong><br>Vitamin C dan antioksidan memperkuat pertahanan tubuh terhadap infeksi.</p>
+                    <p><strong>4. Jaga Kesehatan Jantung</strong><br>Kalium membantu mengatur tekanan darah dan mengurangi risiko hipertensi.</p>
+                    <h4>Kesimpulan</h4>
+                    <p>Kalau kamu ingin minuman yang beneran segar dan nyegerin badan tanpa takut efek samping, pilih kelapa muda segar. Apalagi kalau langsung dari Bang Agus yang memotong kelapa di depan kamu!</p>
+                    <p>Nggak percaya? Coba buktikan sendiri. Satu gelas saja, kamu akan bedakan rasanya dengan minuman kemasan.</p>
+                `
+            }
+        };
+
+        function openArticle(type) {
+            const modal = document.getElementById('articleModal');
+            const modalContent = document.getElementById('modalContent');
+            const article = articleContent[type];
+            
+            modalContent.innerHTML = `
+                <h2 class="modal-title">${article.title}</h2>
+                <div class="modal-meta"><i class="far fa-clock"></i> ${article.meta}</div>
+                <div class="modal-body">${article.body}</div>
+            `;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('articleModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
         
         function renderMenus(){
             const container = document.getElementById('menuGrid');
@@ -899,19 +1307,6 @@
             setTimeout(()=>t.remove(),2500); 
         }
         
-        document.getElementById('claimPromoBtn')?.addEventListener('click',()=>{ 
-            if(promoClaimed) return showToast('Promo sudah diklaim! Gunakan untuk pesanan Anda.'); 
-            activeDiscount={minPurchase:2,value:5,maxDiscount:5000}; 
-            promoClaimed=true; 
-            const btn=document.getElementById('claimPromoBtn'); 
-            if(btn){ 
-                btn.disabled=true; 
-                btn.innerHTML='<i class="fas fa-check"></i> Promo Diklaim!'; 
-            } 
-            renderCart(); 
-            showToast('🎉 Selamat! Promo 5% berhasil diklaim. Minimal beli 2 gelas!'); 
-        });
-        
         document.getElementById('checkoutBtn')?.addEventListener('click',()=>{ 
             if(cart.length===0) return alert('Keranjang masih kosong!'); 
             let subtotal=cart.reduce((s,i)=>s+(i.harga*i.quantity),0), 
@@ -960,8 +1355,20 @@
                 showToast('Foto profil berhasil diperbarui!'); 
             } 
         });
+        
+        // Event untuk tombol tambah video
+        document.getElementById('addVideoBtn')?.addEventListener('click', addYouTubeVideo);
+        
+        // Enter key di input URL
+        document.getElementById('youtubeUrl')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addYouTubeVideo();
+            }
+        });
+        
         const savedPhoto = localStorage.getItem('profilePhoto'); 
         if(savedPhoto) document.getElementById('profileImage').src=savedPhoto;
+        
         document.querySelectorAll('.nav-links a').forEach(anchor=>{ 
             anchor.addEventListener('click',function(e){ 
                 e.preventDefault(); 
@@ -969,6 +1376,7 @@
                 if(target) target.scrollIntoView({behavior:'smooth'}); 
             }); 
         });
+        
         renderMenus();
     </script>
 </body>
